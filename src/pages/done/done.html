@@ -13,6 +13,18 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <p style="text-align:center" *ngIf="toggleOptions">Swipe left to delete</p>
+  <ion-list inset>
+    <ion-item-sliding *ngFor="let item of doneItems">
+      <ion-item *ngIf="toggleOptions" (swipeleft)="removeItem(item)">
+        {{item}}
+      </ion-item>
+        <ion-item *ngIf="!toggleOptions">
+          {{item}}
+        </ion-item>
+        <ion-item-options side="right" (click)="deleteItem()">
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

@@ -3,9 +3,14 @@
     <ion-title>
       Todos
     </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="btnOptions()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-buttons end>
       <button ion-button (click)="addTodo()">
-        <ion-icon name="add"></ion-icon>
+        <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-buttons>
     <!--ion-buttons start>
@@ -17,10 +22,21 @@
 </ion-header>
 
 <ion-content>
+  <p style="text-align:center" *ngIf="toggleOptions">Swipe left to delete</p>
   <ion-list inset>
-    <ion-item *ngFor="let item of todos" (click)="edit(item)">
-      {{item}}
-    </ion-item>
+    <ion-item-sliding *ngFor="let item of todos">
+      <ion-item *ngIf="toggleOptions" (swipeleft)="removeItem(item)">
+        {{item}}
+      </ion-item>
+        <ion-item *ngIf="!toggleOptions">
+          {{item}}
+        </ion-item>
+        <ion-item-options side="right">
+        <button ion-button color="accept" *ngIf="!toggleOptions" (click)="btnDone()">
+          Done
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
   <div *ngIf="toggleNew">
