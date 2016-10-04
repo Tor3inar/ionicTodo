@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Todos
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addTodo()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!--ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset>
+    <ion-item *ngFor="let item of todos" (click)="edit(item)">
+      {{item}}
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="toggleNew">
+  <ion-item class="inputField">
+      <ion-input class="input-wrapper" [(ngModel)]="newItem" placeholder="    Task"></ion-input>
+  </ion-item>
+  <ion-buttons end>
+          <button ion-button small color="danger" (click)="btnCancel()">Cancel</button>
+          <button ion-button small color="secondary" (click)="btnAdd(newItem)">Add</button>
+      </ion-buttons>
+  </div>
+</ion-content>
