@@ -26,7 +26,7 @@ toggleOptions: boolean = false;
 
   static getFinished(): string[] {
 
-    return ["done item 1"]; //test
+    return ["done item 1"];
   }
 
   static deleteItem(item){
