@@ -6,6 +6,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TodosPage } from '../pages/todos/todos';
+import { DonePage } from '../pages/done/done';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     ContactPage,
     HomePage,
     TodosPage,
+    DonePage,
     TabsPage
   ],
   imports: [
@@ -28,6 +30,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     ContactPage,
     HomePage,
     TodosPage,
+    DonePage,
     TabsPage
   ],
   providers: []
