@@ -1,3 +1,4 @@
+import { TodosProvider } from '../../providers/todos-provider';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,10 +14,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class DonePage {
 
-static doneItems: string[] = DonePage.getFinished();
+doneItems: string[] = this.todosProvider.getDoneTodos();
 toggleOptions: boolean = false;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public todosProvider: TodosProvider) {
     
   }
 
@@ -24,23 +25,18 @@ toggleOptions: boolean = false;
     console.log('Hello Done Page');
   }
 
-  static getFinished(): string[] {
-
-    return ["done item 1"];
-  }
-
-  static deleteItem(item){
+  deleteItem(item){
     this.remove(this.doneItems, item)
   }
 
-  static remove(array: any[], item: any){
+  remove(array: any[], item: any){
     let index: number = array.indexOf(item);
     if (index == 0) array.shift();
     else if (index == array.length -1) array.pop();
     else array.splice(index, index);
   }
 
-   static addDoneItem(item: string){
+  addDoneItem(item: string){
     this.doneItems.push(item);
   }
 

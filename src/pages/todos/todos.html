@@ -9,7 +9,7 @@
       </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button (click)="addTodo()">
+      <button ion-button (click)="iconAddTodo()">
         <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-buttons>
@@ -25,14 +25,14 @@
   <p style="text-align:center" *ngIf="toggleOptions">Swipe left to delete</p>
   <ion-list inset>
     <ion-item-sliding *ngFor="let item of todos">
-      <ion-item *ngIf="toggleOptions" (swipeleft)="removeItem(item)">
+      <ion-item *ngIf="toggleOptions" (swipeleft)="slideRemove(item)">
         {{item}}
       </ion-item>
         <ion-item *ngIf="!toggleOptions">
           {{item}}
         </ion-item>
         <ion-item-options side="right">
-        <button ion-button color="accept" *ngIf="!toggleOptions" (click)="btnDone()">
+        <button ion-button color="accept" *ngIf="!toggleOptions" (click)="btnDone(item)">
           Done
         </button>
       </ion-item-options>
