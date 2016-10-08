@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -14,11 +15,27 @@ export class TodosProvider {
   todos: string[] = [];
   doneTodos: string[] = [];
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public toastCtrl: ToastController) {
     
   }
 
   addTodo(todo: string){
+    if (this.todos.indexOf(todo) > -1){
+      let toast = this.toastCtrl.create({
+        message: "That todo is already listed",
+        duration: 3000,
+        position: "top"
+      })
+      toast.present();
+    } else if (todo.trim() === "" || todo.length === 0) {
+        let toast = this.toastCtrl.create({
+        message: "You can't add a blank todo",
+        duration: 3000,
+        position: "top"
+      })
+      toast.present();
+    } else
+
     this.todos.push(todo);
   }
 
@@ -36,6 +53,10 @@ export class TodosProvider {
 
   removeTodo(todo: string){
     this.remove(this.todos, todo);
+  }
+
+  removeDone(finished: string){
+    this.remove(this.doneTodos, finished);
   }
 
   remove(array: any[], item: any){

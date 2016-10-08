@@ -40,4 +40,13 @@ toggleOptions: boolean = false;
     this.doneItems.push(item);
   }
 
+  btnOptions(){
+    if (this.toggleOptions) this.toggleOptions = false;
+    else this.toggleOptions = true;
+  }
+
+  removeItem(finished: string){
+    this.todosProvider.removeDone(finished);
+  }
+
 }

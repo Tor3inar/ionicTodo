@@ -2,8 +2,37 @@
 // http://ionicframework.com/docs/v2/theming/
 @import "ionic.globals";
 
+//Global css
 ion-title{
     text-align: center;
+}
+
+.scroll-content{
+    background-color: #F0F0F0;
+}
+
+#activePage {
+    background-color: whitesmoke;
+}
+
+ion-list{
+    ion-item-sliding:first-child{
+        border: 0.5px;
+        border-top: 100%;
+        border-top-style: groove;
+    }
+}
+
+#noPadding{
+    padding: none;
+    margin: 0;
+    width: 99%;
+}
+
+#transparent {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 // Shared Variables
