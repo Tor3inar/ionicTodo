@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { TodosPage } from '../pages/todos/todos';
 import { DonePage } from '../pages/done/done';
 import { TabsPage } from '../pages/tabs/tabs';
+import { TodosProvider } from '../providers/todos-provider';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { TabsPage } from '../pages/tabs/tabs';
     DonePage,
     TabsPage
   ],
-  providers: []
+  providers: [TodosProvider]
 })
 export class AppModule {}
