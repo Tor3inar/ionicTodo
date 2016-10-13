@@ -12,6 +12,9 @@
     "moduleResolution": "node",
     "target": "es5"
   },
+  "types": [
+      "firebase"
+  ],
   "exclude": [
     "node_modules"
   ],
@@ -19,4 +22,5 @@
   "atom": {
     "rewriteTsconfig": false
   }
+
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { LoginPage } from '../login/login';
 import { DonePage } from '../done/done';
 import { TodosPage } from '../todos/todos';
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from 'ionic-angular';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -15,7 +16,7 @@ export class TodosProvider {
   todos: string[] = [];
   doneTodos: string[] = [];
 
-  constructor(public http: Http, public toastCtrl: ToastController) {
+  constructor(public http: Http, public toastCtrl: ToastController, af: AngularFire) {
     
   }
 

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AngularFire } from 'angularfire2';
 import { TodosProvider } from '../../providers/todos-provider';
 
 @Component({
@@ -14,13 +15,21 @@ toggleNew: boolean;
 toggleOptions: boolean;
 done: string[] = this.todosProvider.getDoneTodos();
 
-  constructor(public navCtrl: NavController, public todosProvider: TodosProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public todosProvider: TodosProvider, 
+    public af: AngularFire
+    ) {
 
     this.toggleOptions, this.toggleNew = false;
   }
 
   iconAddTodo(){
     this.toggleNew = true;
+  }
+
+  logout() {
+     this.af.auth.logout();
   }
 
    btnAdd(newItem: string){
