@@ -21,7 +21,7 @@
 <ion-content>
   <p style="text-align:center" *ngIf="toggleOptions">Swipe left to delete</p>
   <ion-list>
-    <ion-item-sliding *ngFor="let item of doneItems">
+    <ion-item-sliding *ngFor="let item of doneItems | async">
       <ion-item *ngIf="toggleOptions" (swipeleft)="removeItem(item)">
         {{item}}
       </ion-item>
