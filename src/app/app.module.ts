@@ -8,6 +8,7 @@ import { DonePage } from '../pages/done/done';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { TodosProvider } from '../providers/todos-provider';
+import { FirebaseProvider } from '../providers/firebase-provider';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD8AbiUvmjJzg5a6OJjzYIoeK3nWrduG5w",
@@ -40,6 +41,7 @@ export const firebaseConfig = {
   ],
   providers: [
     TodosProvider,
+    FirebaseProvider
     ]
 })
 export class AppModule {}

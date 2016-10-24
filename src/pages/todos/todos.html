@@ -42,7 +42,7 @@
    </div>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of todos">
+    <ion-item-sliding *ngFor="let item of todos | async">
       <ion-item *ngIf="toggleOptions" (swipeleft)="slideRemove(item)">
         {{item}}
       </ion-item>
