@@ -1,6 +1,8 @@
-var ngTemplate = require('../dist/plugins/ng-template').ngTemplate;
 var nodeResolve = require('rollup-plugin-node-resolve');
 var commonjs = require('rollup-plugin-commonjs');
+var globals = require('rollup-plugin-node-globals');
+var builtins = require('rollup-plugin-node-builtins');
+var json = require('rollup-plugin-json');
 
 // https://github.com/rollup/rollup/wiki/JavaScript-API
 
@@ -10,7 +12,7 @@ module.exports = {
    * be included, along with the minimum necessary code
    * from its dependencies
    */
-  entry: './.tmp/app/main.dev.js',
+  entry: '{{SRC}}/app/main.dev.ts',
 
   /**
    * sourceMap: If true, a separate sourcemap file will
